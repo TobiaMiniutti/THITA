@@ -1,219 +1,168 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>THITA — Maker design studio</title>
-  <meta name="description" content="THITA progetta identità, 3D e packaging per prodotti veri. Nato da maker, per maker." />
-  <link rel="icon" href="/favicon.png" type="image/png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet"/>
+<!-- ===== THITA FOOTER ===== -->
+<footer class="thita-footer" aria-label="Footer">
+  <div class="thita-footer__angle"></div>
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="THITA — Maker design studio" />
-  <meta property="og:description" content="Identità, 3D e packaging con tempi chiari e consegne pulite." />
-  <meta property="og:image" content="/og-image.png" />
-  <meta property="og:url" content="https://thita.it/" />
-
-  <style>
-    :root{
-      --bg-1:#0b0c10;         /* charcoal */
-      --bg-2:#0f1217;         /* deep navy/graphite */
-      --fg:#eef0f2;           /* quasi-bianco freddo */
-      --muted:#a7b0b9;        /* grigio-blu */
-      --line:#1a1f27;         /* bordo */
-      --accent:#d2c08b;       /* gold sabbia */
-      --accent-2:#7aa6ff;     /* accento freddo per micro-dettagli */
-      --radius:18px;
-      --container:clamp(22px, 4vw, 48px);
-      --maxw:1200px;
-      --elev:0 20px 60px rgba(0,0,0,.4);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family:'Outfit', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color:var(--fg); background:linear-gradient(160deg, var(--bg-1), var(--bg-2));
-      line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-    }
-    a{color:inherit; text-decoration:none}
-
-    /* Subtle background motif (angled theta) */
-    .bg-ornament{position:fixed; inset:-20% -10% auto -10%; height:60vh; pointer-events:none; z-index:0; opacity:.18; filter: blur(30px) saturate(110%);
-      background: conic-gradient(from 20deg at 60% 40%, transparent 0 20%, rgba(210,192,139,.25) 20% 24%, transparent 24% 60%, rgba(122,166,255,.18) 60% 64%, transparent 64% 100%);
-      transform: rotate(-8deg);
-    }
-
-    .container{position:relative; z-index:1; max-width:var(--maxw); margin:0 auto; padding: clamp(14px,2.4vw,22px) var(--container) clamp(40px,6vw,72px)}
-
-    /* Header */
-    header{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0; position:sticky; top:0; z-index:10;
-      backdrop-filter:saturate(120%) blur(8px); background: linear-gradient(180deg, color-mix(in oklab, var(--bg-2) 75%, transparent), transparent); border-bottom:1px solid var(--line)}
-    .brand{display:flex; align-items:center; gap:12px}
-    .logo{width:40px; height:40px; border-radius:10px; border:1px solid var(--line); object-fit:cover}
-    .wordmark{letter-spacing:.18em; text-transform:uppercase; font-weight:600; font-size:14px}
-    .header-actions{display:flex; align-items:center; gap:12px}
-    .link{opacity:.9; border:1px solid var(--line); border-radius:999px; padding:10px 14px; font-size:14px}
-    .link:hover{opacity:1; border-color:color-mix(in oklab, var(--accent) 40%, var(--line))}
-
-    /* Hero two‑column for desktop */
-    .hero{display:grid; grid-template-columns: 1.1fr .9fr; gap: clamp(18px, 4vw, 44px); align-items:start; padding: clamp(30px, 6vw, 64px) 0}
-    h1{font-size: clamp(32px, 6vw, 62px); line-height:1.08; letter-spacing:-.01em; margin:0 0 8px}
-    .lead{color:var(--muted); font-size: clamp(16px, 2.4vw, 20px); margin:0}
-    .bullets{display:grid; grid-template-columns:1fr; gap:8px; margin-top:12px; color:var(--muted)}
-    .bullet{display:flex; gap:10px; align-items:flex-start}
-    .bullet svg{flex:0 0 18px}
-
-    /* Contact card */
-    .card{border:1px solid var(--line); border-radius:var(--radius); padding:18px; background: color-mix(in oklab, var(--bg-2) 88%, transparent); box-shadow: var(--elev)}
-    .card h2{font-size:18px; margin:0 0 10px; letter-spacing:.06em; text-transform:uppercase; color: color-mix(in oklab, var(--fg) 92%, var(--accent))}
-    form{display:grid; gap:10px}
-    label{font-size:13px; color: color-mix(in oklab, var(--fg) 85%, var(--muted))}
-    input,textarea{width:100%; padding:12px 12px; border-radius:12px; border:1px solid var(--line); background:transparent; color:var(--fg); font-size:15px; outline:none}
-    input:focus,textarea:focus{border-color: color-mix(in oklab, var(--accent) 40%, var(--line)); box-shadow:0 0 0 3px color-mix(in oklab, var(--accent) 18%, transparent)}
-    textarea{min-height:120px; resize:vertical}
-    .error-message{display:none; font-size:12px; color:var(--accent)}
-    .btn{display:inline-block; border:1px solid var(--fg); background:var(--fg); color:var(--bg-2); padding:12px 14px; border-radius:12px; font-weight:600; font-size:14px}
-    .btn:hover{filter:brightness(.96)}
-    .note{font-size:12px; color:var(--muted)}
-
-    /* Pillars */
-    .pillars{display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; margin-top: 10px}
-    .pillar{border:1px solid var(--line); border-radius:14px; padding:14px; background: color-mix(in oklab, var(--bg-1) 92%, transparent)}
-    .pillar strong{display:block; font-size:13px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:4px; color: color-mix(in oklab, var(--fg) 94%, var(--accent))}
-    .pillar p{margin:0; font-size:14px; color:var(--muted)}
-
-    /* Legal strip (compact, not a big footer) */
-    .legal{margin-top: clamp(26px, 5vw, 44px); padding-top:12px; border-top:1px solid var(--line); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; color:var(--muted); font-size:13px}
-
-    @media (max-width: 940px){ .hero{grid-template-columns:1fr} }
-    @media (prefers-reduced-motion:reduce){ *{transition:none!important; animation:none!important} }
-  </style>
-</head>
-<body>
-  <div class="bg-ornament" aria-hidden="true"></div>
-  <div class="container">
-    <header>
-      <a class="brand" href="/" aria-label="THITA Home">
-        <img src="/favicon.png" alt="THITA" class="logo"/>
-        <div class="wordmark">THITA</div>
+  <div class="thita-footer__inner">
+    <!-- Brand + payoff -->
+    <section class="thita-footer__brand">
+      <a class="thita-logo" href="/" aria-label="THITA Home" title="THITA">
+        <span class="thita-logo__glyph" aria-hidden="true">Θ</span>
+        <span class="thita-logo__type">THITA</span>
       </a>
-      <div class="header-actions">
-        <a class="link" href="#contatti">Contattaci</a>
-        <a class="link" href="mailto:info@thita.it">info@thita.it</a>
+      <p class="thita-payoff">THITA – Design from a better angle</p>
+    </section>
+
+    <!-- Navigazione -->
+    <nav class="thita-footer__nav" aria-label="Footer navigation">
+      <div class="thita-nav-col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/work">Work</a></li>
+          <li><a href="/lab">Lab</a></li>
+          <li><a href="/store">Store</a></li>
+        </ul>
       </div>
-    </header>
+      <div class="thita-nav-col">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="/press">Press</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/docs">Docs</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="thita-nav-col">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/cookie-policy">Cookie Policy</a></li>
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/credits">Credits</a></li>
+        </ul>
+      </div>
+    </nav>
 
-    <main>
-      <section class="hero" id="home" aria-label="Hero">
-        <div>
-          <h1>Design, 3D e packaging per prodotti veri.</h1>
-          <p class="lead">Siamo maker. Progettiamo identità e hardware con tempi chiari e consegne pulite. Niente fumo, solo ciò che serve per andare in produzione.</p>
-          <div class="bullets" role="list">
-            <div class="bullet" role="listitem">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Identità e sistemi tipografici, pronti per l'uso.
-            </div>
-            <div class="bullet" role="listitem">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              3D, tolleranze e prototipi rapidi per decisioni veloci.
-            </div>
-            <div class="bullet" role="listitem">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Packaging e prestampa: file puliti, produzione senza sorprese.
-            </div>
-          </div>
+    <!-- Contatti + dati fiscali -->
+    <section class="thita-footer__legal" aria-label="Company details">
+      <address>
+        <strong>THITA</strong><br>
+        Via Esempio 12, 40100 Bologna (BO), Italy<br>
+        <a href="mailto:info@thita.it">info@thita.it</a> · <a href="tel:+393791128232">+39 379 112 8232</a>
+      </address>
 
-          <div class="pillars" aria-label="Aree di lavoro">
-            <div class="pillar"><strong>Identità</strong><p>Logotype, palette, guideline operative.</p></div>
-            <div class="pillar"><strong>3D & Prototipi</strong><p>Render, iterazioni, scelte basate sui dati.</p></div>
-            <div class="pillar"><strong>Packaging</strong><p>Materiali, fustelle, file di prestampa.</p></div>
-          </div>
-        </div>
+      <ul class="thita-legal-list">
+        <!-- Sostituisci i placeholder appena hai i dati -->
+        <li><span>P. IVA</span> <strong>IT 00000000000</strong></li>
+        <li><span>Cod. Fisc.</span> <strong>XXXXXXXXXXXX</strong></li>
+        <li><span>REA</span> <strong>BO-000000</strong></li>
+        <li><span>Cap. Soc.</span> <strong>€ 10.000 i.v.</strong></li>
+        <li><span>PEC</span> <strong>thita@pec.it</strong></li>
+        <li><span>SDI</span> <strong>AAAAAAA</strong></li>
+      </ul>
 
-        <aside class="card" aria-labelledby="contactTitle" id="contatti">
-          <h2 id="contactTitle">Parla con THITA</h2>
-          <form id="contactForm" novalidate>
-            <label for="nome">Nome e Cognome <span aria-hidden="true" style="color: var(--accent);">*</span></label>
-            <input type="text" id="nome" name="nome" placeholder="Il tuo nome" required autocomplete="name" spellcheck="false" />
-            <div class="error-message">Inserisci il tuo nome completo.</div>
-
-            <label for="email">Email <span aria-hidden="true" style="color: var(--accent);">*</span></label>
-            <input type="email" id="email" name="email" placeholder="tua@email.com" required autocomplete="email" spellcheck="false" />
-            <div class="error-message">Inserisci una email valida.</div>
-
-            <label for="messaggio">Messaggio <span aria-hidden="true" style="color: var(--accent);">*</span></label>
-            <textarea id="messaggio" name="messaggio" placeholder="Raccontaci in breve il progetto" required spellcheck="true"></textarea>
-            <div class="error-message">Il messaggio non può essere vuoto.</div>
-
-            <!-- Honeypot antispam -->
-            <input type="text" name="company" id="company" tabindex="-1" autocomplete="off" style="position:absolute; left:-9999px; opacity:0;" aria-hidden="true" />
-
-            <button type="submit" class="btn" aria-label="Invia">Invia</button>
-            <p class="note" id="formStatus" role="status" aria-live="polite"></p>
-            <p class="note">Preferisci email? <a class="link" href="mailto:info@thita.it" style="border:none">info@thita.it</a></p>
-          </form>
-        </aside>
-      </section>
-
-      <section class="legal" aria-label="Informazioni legali">
-        <span>© <span id="y"></span> THITA</span>
-        <span><a href="mailto:info@thita.it">info@thita.it</a></span>
-      </section>
-    </main>
+      <div class="thita-social">
+        <a href="https://instagram.com/thita" aria-label="Instagram" rel="noopener">IG</a>
+        <a href="https://youtube.com/@thita" aria-label="YouTube" rel="noopener">YT</a>
+        <a href="https://x.com/thita" aria-label="X" rel="noopener">X</a>
+        <a href="https://linkedin.com/company/thita" aria-label="LinkedIn" rel="noopener">IN</a>
+      </div>
+    </section>
   </div>
 
-  <script>
-    // Year
-    document.getElementById('y').textContent = new Date().getFullYear();
+  <div class="thita-footer__bottom">
+    <p>© <span id="thita-year"></span> THITA · All rights reserved</p>
+    <p><a href="/impressum">Impressum</a></p>
+  </div>
+</footer>
 
-    // Contact form + Make webhook (endpoint tuo)
-    const form = document.getElementById('contactForm');
-    const statusEl = document.getElementById('formStatus');
-    const isEmailValid = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+<script>
+  // anno dinamico
+  document.getElementById('thita-year').textContent = new Date().getFullYear();
+</script>
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const fields = [
-        { input: form.nome, error: form.nome.nextElementSibling, type: 'text' },
-        { input: form.email, error: form.email.nextElementSibling, type: 'email' },
-        { input: form.messaggio, error: form.messaggio.nextElementSibling, type: 'text' }
-      ];
+<style>
+  :root{
+    --thita-bg:#0b0b0c;            /* fondo footer */
+    --thita-fg:#f3f3f4;            /* testo */
+    --thita-dim:#a6a6ab;           /* testo secondario */
+    --thita-accent:#ffffff;        /* linea angolata */
+    --thita-muted:#202024;         /* bordi/linee */
+  }
+  .thita-footer{color:var(--thita-fg);background:var(--thita-bg);border-top:1px solid var(--thita-muted);}
+  .thita-footer__angle{
+    height:8px;
+    background:
+      linear-gradient(135deg, transparent 0 48%, var(--thita-accent) 48% 52%, transparent 52%) no-repeat 0 0/100% 100%;
+    opacity:.15;
+  }
+  .thita-footer__inner{
+    max-width:1200px;margin:auto;padding:48px 20px;
+    display:grid;gap:32px;
+    grid-template-columns:1.2fr 2fr 1.6fr;
+  }
+  .thita-footer__brand{align-self:start}
+  .thita-logo{display:flex;gap:.6rem;align-items:center;text-decoration:none;color:var(--thita-fg)}
+  .thita-logo__glyph{font-size:28px;line-height:1}
+  .thita-logo__type{font-weight:700;letter-spacing:.06em}
+  .thita-payoff{margin:.5rem 0 0;color:var(--thita-dim)}
+  .thita-footer__nav{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .thita-nav-col h3{font-size:.9rem;margin:0 0 .6rem;color:var(--thita-fg);opacity:.9}
+  .thita-nav-col ul{list-style:none;margin:0;padding:0;display:grid;gap:.35rem}
+  .thita-nav-col a{color:var(--thita-dim);text-decoration:none}
+  .thita-nav-col a:hover{color:var(--thita-fg)}
+  .thita-footer__legal{display:grid;gap:14px}
+  .thita-footer__legal address{font-style:normal;color:var(--thita-dim);line-height:1.5}
+  .thita-footer__legal a{color:var(--thita-fg);text-decoration:none}
+  .thita-legal-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px 16px;list-style:none;margin:4px 0 0;padding:0}
+  .thita-legal-list li{display:flex;gap:8px;color:var(--thita-dim);font-size:.92rem}
+  .thita-legal-list span{opacity:.9;min-width:84px}
+  .thita-social{display:flex;gap:10px;margin-top:6px}
+  .thita-social a{display:inline-flex;align-items:center;justify-content:center;
+    width:28px;height:28px;border:1px solid var(--thita-muted);border-radius:50%;color:var(--thita-fg);text-decoration:none;font-size:.72rem}
+  .thita-social a:hover{background:var(--thita-muted)}
+  .thita-footer__bottom{
+    border-top:1px solid var(--thita-muted);display:flex;justify-content:space-between;
+    gap:16px;align-items:center;padding:14px 20px;color:var(--thita-dim);font-size:.92rem;max-width:1200px;margin:auto;
+  }
+  .thita-footer__bottom a{color:var(--thita-dim);text-decoration:none}
+  .thita-footer__bottom a:hover{color:var(--thita-fg)}
+  @media (max-width:980px){
+    .thita-footer__inner{grid-template-columns:1fr;gap:28px}
+    .thita-footer__nav{grid-template-columns:repeat(2,1fr)}
+    .thita-legal-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+  @media (max-width:560px){
+    .thita-footer__nav{grid-template-columns:1fr}
+    .thita-legal-list{grid-template-columns:1fr}
+  }
+</style>
 
-      let isValid = true;
-      fields.forEach(f => {
-        const value = f.input.value.trim();
-        const ok = value && (f.type !== 'email' || isEmailValid(value));
-        f.error.style.display = ok ? 'none' : 'block';
-        f.input.setAttribute('aria-invalid', ok ? 'false' : 'true');
-        if(!ok) isValid = false;
-      });
-
-      if (document.getElementById('company').value) return; // honeypot
-      if (!isValid) return;
-
-      const payload = {
-        name: form.nome.value.trim(),
-        email: form.email.value.trim(),
-        message: form.messaggio.value.trim(),
-        site: 'thita.it'
-      };
-
-      statusEl.textContent = 'Invio in corso…';
-      try{
-        const response = await fetch('https://hook.eu1.make.com/m16ifvwmnq5dcmy5eyw15ql9esz5mcfm', {
-          method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload), mode:'cors', keepalive:true
-        });
-        if(!response.ok) throw new Error('Errore invio');
-        statusEl.textContent = 'Grazie! Messaggio inviato.';
-        form.reset();
-      }catch(err){
-        console.error(err);
-        statusEl.textContent = 'Errore durante l\'invio. Scrivi a info@thita.it';
-      }
-    });
-  </script>
-</body>
-</html>
+<!-- JSON-LD pronto per SEO e dati fiscali -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"THITA",
+  "url":"https://thita.it",
+  "logo":"https://thita.it/favicon/android-chrome-512x512.png",
+  "email":"info@thita.it",
+  "telephone":"+39 379 112 8232",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"Via Esempio 12",
+    "addressLocality":"Bologna",
+    "postalCode":"40100",
+    "addressCountry":"IT"
+  },
+  "vatID":"IT00000000000",
+  "legalName":"THITA S.r.l.",
+  "foundingDate":"2025",
+  "sameAs":[
+    "https://instagram.com/thita",
+    "https://www.linkedin.com/company/thita",
+    "https://x.com/thita",
+    "https://youtube.com/@thita"
+  ]
+}
+</script>
