@@ -3,200 +3,135 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>THITA — Design per maker</title>
-  <meta name="description" content="THITA è uno studio per brand e prodotto. Identità, 3D e packaging. Nato da maker, per maker." />
+  <title>THITA — Studio per maker</title>
+  <meta name="description" content="THITA: identità, 3D e packaging per prodotti reali. Nato da maker, per maker." />
   <link rel="icon" href="favicon.png" type="image/png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="THITA — Design per maker" />
-  <meta property="og:description" content="Identità, 3D e packaging per prodotti reali. Nato da maker, per maker." />
+  <meta property="og:title" content="THITA — Studio per maker" />
+  <meta property="og:description" content="Design essenziale per chi costruisce: identità, 3D, packaging." />
   <meta property="og:image" content="/og-image.png" />
   <meta property="og:url" content="https://thita.it/" />
 
   <style>
     :root{
-      --carbon:#121212; --carbon-deep:#0d0d0d; --white:#fff; --anthracite:#b3b3b3; --golden:#c9a74c;
-      --tri-start:#008C45; --tri-mid:#F4F5F0; --tri-end:#CD212A;
-      --radius:20px; --transition:.3s ease; --shadow:0 10px 40px rgba(0,0,0,.4);
-      --container:clamp(18px, 4vw, 42px);
+      --bg:#0b0b0b; --fg:#eaeaea; --muted:#a3a3a3; --line:#1e1e1e; --accent:#cbb887;
+      --radius:16px; --maxw:780px; --pad:clamp(18px,4vw,40px);
     }
-    *{margin:0;padding:0;box-sizing:border-box}
-    html,body{min-height:100%}
-    body{
-      background:var(--carbon); color:var(--white); font-family:'Outfit',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; line-height:1.6;
-    }
-    a{color:inherit;text-decoration:none}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; background:var(--bg); color:var(--fg); font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; line-height:1.55; -webkit-font-smoothing:antialiased}
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--maxw); margin:0 auto; padding: calc(env(safe-area-inset-top) + 10px) var(--pad) calc(env(safe-area-inset-bottom) + 32px)}
 
-    /* Header */
-    header{position:sticky;top:0;z-index:1000; display:flex; align-items:center; justify-content:space-between;
-      padding:1rem var(--container); backdrop-filter:blur(14px); background:rgba(255 255 255 / .05); box-shadow:0 2px 24px rgba(0,0,0,.5)}
-    .logo{height:40px; user-select:none; filter:drop-shadow(0 0 1.5px rgba(0,0,0,.6))}
-    nav{display:flex; gap:2rem; align-items:center}
-    .nav-link{position:relative; font-weight:600; font-size:1rem; padding-bottom:4px}
-    .nav-link::after{content:""; position:absolute; left:0; bottom:0; height:3px; width:0; border-radius:3px;
-      background:linear-gradient(90deg,var(--tri-start),var(--tri-mid),var(--tri-end)); transition:width var(--transition)}
-    .nav-link:hover::after, .nav-link:focus-visible::after{width:100%}
-    .nav-link:hover, .nav-link:focus-visible{color:var(--golden); outline:none}
+    /* Header minimale */
+    header{display:flex; justify-content:space-between; align-items:center; gap:14px; padding:10px 0; position:sticky; top:0; background:color-mix(in oklab, var(--bg) 92%, transparent); backdrop-filter:saturate(120%) blur(6px); border-bottom:1px solid var(--line); z-index:20}
+    .brand{display:flex; align-items:center; gap:10px}
+    .logo{width:32px; height:32px; border-radius:8px; border:1px solid var(--line)}
+    .wordmark{letter-spacing:.16em; text-transform:uppercase; font-weight:600; font-size:14px}
+    .email{font-size:14px; opacity:.9}
+    .email:hover{opacity:1}
 
-    /* Mobile menu */
-    .menu-btn{display:none; background:transparent; border:1px solid rgba(255,255,255,.14); color:var(--white); padding:.6rem .8rem; border-radius:12px}
-    @media (max-width:860px){ nav{display:none} .menu-btn{display:block} header.open nav{display:flex; position:absolute; left:var(--container); right:var(--container); top:60px; flex-direction:column; gap:1rem; padding:1rem; border:1px solid rgba(255,255,255,.08); border-radius:16px; background:rgba(13,13,13,.9); box-shadow:var(--shadow)} }
+    /* Hero tipografico */
+    .hero{padding:40px 0 22px}
+    h1{font-size:clamp(28px,6.5vw,48px); line-height:1.1; letter-spacing:-.01em; margin:0 0 8px}
+    .lead{color:var(--muted); font-size:clamp(15px,2.8vw,18px); margin:0}
+    .actions{display:flex; gap:10px; margin-top:16px}
+    .btn{display:inline-block; border:1px solid var(--fg); background:var(--fg); color:var(--bg); padding:10px 14px; border-radius:12px; font-weight:600; font-size:14px}
+    .btn.secondary{background:transparent; color:var(--fg); border-color:var(--line)}
 
-    /* Hero */
-    .hero{min-height:100svh; display:grid; place-items:center; text-align:center; padding:0 var(--container);
-      background:linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.75)), url('hero.jpg') center/cover no-repeat}
-    .hero h1{font-size:clamp(2.2rem, 6vw, 4rem); letter-spacing:.02em; color:var(--golden); text-shadow:0 4px 14px rgba(0,0,0,.6)}
-    .hero p{max-width:780px; margin-top:1rem; font-size:clamp(1rem, 2.6vw, 1.15rem); color:var(--anthracite)}
+    /* Blocchi compatti */
+    .block{margin-top:30px; padding:18px; border:1px solid var(--line); border-radius:var(--radius); background:color-mix(in oklab, var(--bg) 96%, transparent)}
+    .eyebrow{font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:color-mix(in oklab, var(--fg) 80%, var(--muted)); margin:0 0 8px}
+    .list{margin:0; padding-left:18px; color:var(--muted)}
+    .list li{margin:.35rem 0}
 
-    /* Main */
-    main{max-width:1100px; margin:0 auto; padding:4rem var(--container)}
-    .section{background:var(--carbon-deep); border-radius:20px; padding:2rem; box-shadow:var(--shadow); margin-bottom:3rem; backdrop-filter:blur(8px); transition:transform var(--transition), box-shadow var(--transition)}
-    .section:hover{transform:translateY(-3px); box-shadow:0 14px 54px rgba(0,0,0,.5)}
-    .section h3{font-size:clamp(1.4rem, 3vw, 2rem); margin-bottom:.8rem}
-    .section p,.section li{font-size:1.06rem; color:var(--anthracite)}
-    ul{padding-left:1.2rem}
+    .divider{height:1px; background:var(--line); border:0; margin:26px 0}
 
-    .pills{display:flex; flex-wrap:wrap; gap:.6rem; margin-top:.6rem}
-    .pill{border:1px solid rgba(255,255,255,.08); padding:.5rem .8rem; border-radius:999px; color:var(--anthracite); font-size:.92rem}
+    /* Form minimale */
+    form{display:grid; gap:10px}
+    label{font-size:13px; color:color-mix(in oklab, var(--fg) 85%, var(--muted))}
+    input,textarea{width:100%; padding:12px 12px; border-radius:12px; border:1px solid var(--line); background:transparent; color:var(--fg); font-size:15px; outline:none}
+    input:focus,textarea:focus{border-color:color-mix(in oklab, var(--accent) 40%, var(--line)); box-shadow:0 0 0 3px color-mix(in oklab, var(--accent) 22%, transparent)}
+    textarea{min-height:120px; resize:vertical}
+    .error-message{display:none; font-size:12px; color:var(--accent)}
 
-    .btn{display:inline-block; margin-top:1rem; padding:.85rem 1.6rem; border-radius:999px; background:var(--white); color:var(--carbon); font-weight:700; transition:transform var(--transition), box-shadow var(--transition)}
-    .btn:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,.4)}
+    footer{margin-top:30px; padding-top:14px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
 
-    /* Contact */
-    form{display:grid; gap:.8rem}
-    label{font-size:.95rem; color:color-mix(in oklab, var(--white) 85%, var(--anthracite))}
-    input,textarea{width:100%; padding:12px 14px; border-radius:14px; border:1px solid rgba(255,255,255,.1); background:transparent; color:var(--white); font-size:1rem; outline:none}
-    input:focus,textarea:focus{border-color:color-mix(in oklab,var(--golden) 40%, transparent); box-shadow:0 0 0 3px color-mix(in oklab,var(--golden) 24%, transparent)}
-    textarea{min-height:140px; resize:vertical}
-    .error-message{display:none; color:var(--golden); font-size:.85rem}
-
-    footer{background:var(--carbon-deep); padding:2rem var(--container); display:grid; gap:1.2rem; border-top:1px solid rgba(255,255,255,.06)}
-    .footer-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:1.6rem}
-    .footer-col h4{color:var(--golden); margin-bottom:.6rem}
-    .footer-bottom{text-align:center; color:var(--anthracite); font-size:.95rem}
-
-    /* Reveal */
-    .reveal{opacity:0; transform:translateY(26px); transition:opacity .8s ease, transform .8s ease}
-    .reveal.visible{opacity:1; transform:none}
-
-    @media (max-width:768px){ .hero h1{font-size:2.2rem} }
+    @media (max-width:560px){ .actions{flex-direction:column; align-items:flex-start} }
     @media (prefers-reduced-motion:reduce){ *{transition:none!important; animation:none!important} }
   </style>
 </head>
 <body>
-  <header id="siteHeader">
-    <a href="#top" class="brand" aria-label="THITA home">
-      <img src="favicon.png" alt="THITA" class="logo" />
-    </a>
-    <button class="menu-btn" id="menuBtn" aria-controls="nav" aria-expanded="false">Menu</button>
-    <nav id="nav" aria-label="Principale">
-      <a class="nav-link" href="#home">Home</a>
-      <a class="nav-link" href="#servizi">Servizi</a>
-      <a class="nav-link" href="#contatti">Contatti</a>
-    </nav>
-  </header>
-
-  <section class="hero" id="home">
-    <div>
-      <h1>Design per chi costruisce.</h1>
-      <p>Identità, 3D e packaging per prodotti reali. Selezioniamo pochi progetti, tempi chiari, consegne pulite.</p>
-    </div>
-  </section>
-
-  <main>
-    <section class="section reveal" id="servizi">
-      <h3>Cosa facciamo</h3>
-      <div class="pills">
-        <span class="pill">Identità & Logotype</span>
-        <span class="pill">3D & Prototipazione</span>
-        <span class="pill">Packaging sostenibile</span>
-        <span class="pill">Mockup & Prestampa</span>
-        <span class="pill">Landing & e‑commerce</span>
-        <span class="pill">Performance & SEO</span>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <img src="favicon.png" alt="THITA" class="logo" />
+        <div class="wordmark">THITA</div>
       </div>
-      <p style="margin-top:.8rem">Essenziale e concreto: decidiamo, prototipiamo, misuriamo. Il superfluo resta fuori.</p>
-      <a class="btn" href="#contatti">Parliamo del tuo progetto</a>
-    </section>
+      <a class="email" href="mailto:info@thita.it">info@thita.it</a>
+    </header>
 
-    <section class="section reveal" id="contatti">
-      <h3>Contatti</h3>
-      <form id="contactForm" novalidate>
-        <label for="nome">Nome e Cognome <span aria-hidden="true" style="color: var(--golden);">*</span></label>
-        <input type="text" id="nome" name="nome" placeholder="Inserisci il tuo nome completo" required autocomplete="name" spellcheck="false" />
-        <div class="error-message">Per favore inserisci il tuo nome completo.</div>
+    <main>
+      <section class="hero" id="home">
+        <h1>Design per chi costruisce.</h1>
+        <p class="lead">Identità, 3D e packaging per prodotti reali. Poche cose, fatte bene. Dal prototipo alla produzione.</p>
+        <div class="actions">
+          <a class="btn" href="#contatti">Parla con noi</a>
+          <a class="btn secondary" href="#servizi">Cosa facciamo</a>
+        </div>
+      </section>
 
-        <label for="email">Email <span aria-hidden="true" style="color: var(--golden);">*</span></label>
-        <input type="email" id="email" name="email" placeholder="tua@email.com" required autocomplete="email" spellcheck="false" />
-        <div class="error-message">Inserisci una email valida.</div>
+      <section class="block" id="servizi" aria-label="Cosa facciamo">
+        <p class="eyebrow">Cosa facciamo</p>
+        <ul class="list">
+          <li><strong>Identità.</strong> Logotype, sistemi tipografici e linee guida operative.</li>
+          <li><strong>3D & prototipazione.</strong> Render, tolleranze, iterazioni rapide.</li>
+          <li><strong>Packaging.</strong> Materiali, fustelle e prestampa pronta.</li>
+        </ul>
+      </section>
 
-        <label for="messaggio">Messaggio <span aria-hidden="true" style="color: var(--golden);">*</span></label>
-        <textarea id="messaggio" name="messaggio" placeholder="Scrivi il tuo messaggio qui..." required spellcheck="true"></textarea>
-        <div class="error-message">Il messaggio non può essere vuoto.</div>
+      <hr class="divider"/>
 
-        <!-- Honeypot antispam -->
-        <input type="text" name="company" id="company" tabindex="-1" autocomplete="off" style="position:absolute; left:-9999px; opacity:0;" aria-hidden="true" />
+      <section class="block" id="contatti" aria-label="Contatti">
+        <p class="eyebrow">Contatti</p>
+        <form id="contactForm" novalidate>
+          <label for="nome">Nome e Cognome <span aria-hidden="true" style="color: var(--accent);">*</span></label>
+          <input type="text" id="nome" name="nome" placeholder="Il tuo nome" required autocomplete="name" spellcheck="false" />
+          <div class="error-message">Inserisci il tuo nome completo.</div>
 
-        <button type="submit" class="btn" aria-label="Invia messaggio">Invia</button>
-        <p class="note" style="color:var(--anthracite)">Risposta entro 48h. Oppure scrivi a <a href="mailto:info@thita.it">info@thita.it</a></p>
-        <div id="formStatus" class="note" role="status" aria-live="polite"></div>
-      </form>
-    </section>
-  </main>
+          <label for="email">Email <span aria-hidden="true" style="color: var(--accent);">*</span></label>
+          <input type="email" id="email" name="email" placeholder="tua@email.com" required autocomplete="email" spellcheck="false" />
+          <div class="error-message">Inserisci una email valida.</div>
 
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h4>THITA</h4>
-        <p>Studio per maker: identità, 3D, packaging, digitale.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Contatti</h4>
-        <p><a href="mailto:info@thita.it">info@thita.it</a></p>
-      </div>
-      <div class="footer-col">
-        <h4>Link</h4>
-        <p><a href="#home">Home</a> · <a href="#servizi">Servizi</a> · <a href="#contatti">Contatti</a></p>
-      </div>
-    </div>
-    <div class="footer-bottom">© <span id="y"></span> THITA — Tutti i diritti riservati</div>
-  </footer>
+          <label for="messaggio">Messaggio <span aria-hidden="true" style="color: var(--accent);">*</span></label>
+          <textarea id="messaggio" name="messaggio" placeholder="Raccontaci in breve il progetto" required spellcheck="true"></textarea>
+          <div class="error-message">Il messaggio non può essere vuoto.</div>
 
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"THITA",
-    "url":"https://thita.it/",
-    "logo":"https://thita.it/favicon.png",
-    "email":"info@thita.it"
-  }
-  </script>
+          <!-- Honeypot antispam -->
+          <input type="text" name="company" id="company" tabindex="-1" autocomplete="off" style="position:absolute; left:-9999px; opacity:0;" aria-hidden="true" />
+
+          <button type="submit" class="btn" aria-label="Invia">Invia</button>
+          <p class="lead" id="formStatus" role="status" aria-live="polite" style="font-size:13px; margin:6px 0 0; color:var(--muted)"></p>
+        </form>
+      </section>
+
+      <footer>
+        <span>© <span id="y"></span> THITA</span>
+        <span><a href="mailto:info@thita.it">info@thita.it</a></span>
+      </footer>
+    </main>
+  </div>
 
   <script>
     // Year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Mobile menu toggle
-    const header = document.getElementById('siteHeader');
-    const btn = document.getElementById('menuBtn');
-    btn?.addEventListener('click', ()=>{
-      const open = header.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-
-    // Reveal on scroll
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
-    }, {threshold:.12});
-    reveals.forEach(el=>io.observe(el));
-
-    // Contact form + Make webhook (aggiornato)
+    // Contact form + Make webhook (endpoint aggiornato)
     const form = document.getElementById('contactForm');
     const statusEl = document.getElementById('formStatus');
     const isEmailValid = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -213,12 +148,10 @@
       fields.forEach(f => {
         const value = f.input.value.trim();
         if (!value) {
-          f.error.textContent = f.input.name === 'messaggio' ? 'Il messaggio non può essere vuoto.' : 'Per favore compila questo campo.';
           f.error.style.display = 'block';
           f.input.setAttribute('aria-invalid','true');
           isValid = false;
         } else if (f.type === 'email' && !isEmailValid(value)) {
-          f.error.textContent = 'Inserisci una email valida.';
           f.error.style.display = 'block';
           f.input.setAttribute('aria-invalid','true');
           isValid = false;
@@ -228,8 +161,7 @@
         }
       });
 
-      // honeypot
-      if (document.getElementById('company').value) return;
+      if (document.getElementById('company').value) return; // honeypot
       if (!isValid) return;
 
       const payload = {
@@ -249,7 +181,7 @@
         form.reset();
       }catch(err){
         console.error(err);
-        statusEl.textContent = 'Errore durante l\'invio. Riprova o scrivi a info@thita.it';
+        statusEl.textContent = 'Errore durante l\'invio. Scrivi a info@thita.it';
       }
     });
   </script>
