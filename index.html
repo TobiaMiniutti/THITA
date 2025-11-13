@@ -1,168 +1,284 @@
-<!-- ===== THITA FOOTER ===== -->
-<footer class="thita-footer" aria-label="Footer">
-  <div class="thita-footer__angle"></div>
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>THITA — Oggetti essenziali da maker per maker</title>
+  <meta name="description" content="THITA progetta oggetti essenziali, riparabili e documentati. Da maker per maker." />
+  <style>
+    /* Reset minimo */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
 
-  <div class="thita-footer__inner">
-    <!-- Brand + payoff -->
-    <section class="thita-footer__brand">
-      <a class="thita-logo" href="/" aria-label="THITA Home" title="THITA">
-        <span class="thita-logo__glyph" aria-hidden="true">Θ</span>
-        <span class="thita-logo__type">THITA</span>
-      </a>
-      <p class="thita-payoff">THITA – Design from a better angle</p>
+    /* Token B/N */
+    :root{
+      --bg:#fff; --fg:#000; --muted:#111; --line:#000;
+      --max:1080px; --pad:24px; --radius:18px;
+      --border:1px solid var(--line);
+    }
+    body{
+      background:var(--bg); color:var(--fg);
+      font:400 16px/1.5 ui-sans-serif, system-ui, -apple-system,"SF Pro Text","Segoe UI", Roboto, Helvetica, Arial;
+      letter-spacing:.1px;
+    }
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 var(--pad);}
+
+    /* Header minimal */
+    header{border-bottom:var(--border); position:sticky; top:0; background:var(--bg); z-index:10}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:16px 0;}
+    .brand{font-weight:700; letter-spacing:3px; font-size:14px}
+
+    /* Nav hover: underline progress + focus visibile */
+    nav ul{list-style:none; display:flex; gap:22px; margin:0; padding:0}
+    nav a{
+      font-size:14px; opacity:.95; position:relative; padding:2px 0;
+      background-image:linear-gradient(var(--fg),var(--fg));
+      background-repeat:no-repeat; background-size:0% 1px; background-position:0 100%;
+      transition:background-size .2s ease, opacity .2s ease;
+    }
+    nav a:hover, nav a:focus-visible{background-size:100% 1px; opacity:1; outline:none}
+
+    /* Hero */
+    .hero{padding:90px 0 70px; border-bottom:var(--border);}
+    .kicker{font-size:12px; text-transform:uppercase; letter-spacing:2px; color:#222; margin-bottom:10px}
+    h1{margin:0 0 16px; font-size:clamp(40px,7vw,84px); line-height:1.02; letter-spacing:-1px}
+    .sub{max-width:720px; font-size:clamp(18px,2.3vw,22px); color:#111}
+
+    /* Copy con linee divisorie */
+    .copytext p{margin:0; padding:14px 0;}
+    .copytext p + p{border-top:var(--border);}
+
+    /* Bottoni minimal */
+    .actions{display:flex; gap:12px; margin-top:22px}
+    .btn{
+      border:var(--border); border-radius:999px; padding:10px 16px; font-size:14px;
+      display:inline-flex; align-items:center; gap:8px; transition:transform .15s ease, background .15s ease, color .15s ease;
+    }
+    .btn:hover,.btn:focus-visible{background:#000;color:#fff; transform:translateY(-1px); outline:none}
+    .btn .arr{transition:transform .15s ease}
+    .btn:hover .arr{transform:translateX(3px)}
+
+    /* Sezioni */
+    section{padding:60px 0; border-bottom:var(--border);}
+    .section-title{display:flex; justify-content:space-between; align-items:end; gap:20px; margin-bottom:22px}
+    .section-title h2{margin:0; font-size:18px; letter-spacing:.5px}
+    .section-title p{margin:0; font-size:14px; color:#111}
+
+    /* Grid prodotti */
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:18px}
+    .tile{grid-column:span 4; border:var(--border); border-radius:var(--radius); overflow:hidden; background:#fff; position:relative; transition:transform .18s ease}
+    @media (max-width:900px){.tile{grid-column:span 6}}
+    @media (max-width:600px){.tile{grid-column:span 12}}
+    .ph{aspect-ratio:4/3; background:repeating-linear-gradient(45deg,#fff 0 10px,#000 10px 11px)}
+    .tile-body{padding:14px}
+    .tile h3{font-size:16px; margin:0 0 6px}
+    .tile p{font-size:14px; margin:0 0 12px; color:#111}
+    .meta{display:flex; justify-content:space-between; align-items:center; border-top:var(--border); padding:12px 14px; font-size:13px}
+    .chip{border:var(--border); padding:6px 10px; border-radius:999px; font-size:12px}
+
+    /* Hover card: bordo “doppio” con outline e freccia che avanza */
+    .tile:focus-within,.tile:hover{transform:translate(-2px,-2px)}
+    .tile::after{
+      content:""; position:absolute; inset:0; pointer-events:none;
+      outline:1px solid var(--fg); outline-offset:-6px; opacity:0; transition:opacity .18s ease;
+    }
+    .tile:hover::after{opacity:1}
+    .go{display:inline-flex; align-items:center; gap:6px; font-size:14px;
+        background-image:linear-gradient(var(--fg),var(--fg));
+        background-repeat:no-repeat; background-size:0% 1px; background-position:0 100%;
+        transition:background-size .2s ease}
+    .go .arr{transition:transform .15s ease}
+    .tile:hover .go{background-size:100% 1px}
+    .tile:hover .go .arr{transform:translateX(4px)}
+
+    /* Pill contatti */
+    .contact{display:flex; flex-wrap:wrap; gap:12px}
+    .contact a{border:var(--border); border-radius:999px; padding:10px 14px; font-size:14px; transition:transform .15s ease, background .15s ease, color .15s ease}
+    .contact a:hover,.contact a:focus-visible{background:#000;color:#fff; transform:translateY(-1px); outline:none}
+
+    /* ===== FOOTER — lasciato identico ===== */
+    footer{padding:42px 0}
+    .footer-wrap{border-top:var(--border); padding-top:28px}
+    .foot{display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:28px}
+    @media (max-width:900px){.foot{grid-template-columns:1fr 1fr}}
+    @media (max-width:600px){.foot{grid-template-columns:1fr}}
+    .foot-brand .logotype{font-weight:700; letter-spacing:3px; font-size:14px; margin-bottom:10px}
+    .foot-brand p{max-width:38ch; color:#111; margin:0}
+    .foot h4{font-size:12px; margin:0 0 12px; text-transform:uppercase; letter-spacing:1.6px;}
+    .foot ul{list-style:none; margin:0; padding:0; display:grid; gap:10px}
+    .foot a{
+      position:relative; font-size:14px; padding-right:16px;
+      background-image:linear-gradient(var(--fg),var(--fg));
+      background-size:0% 1px; background-repeat:no-repeat; background-position:0 100%;
+      transition:background-size .2s ease, transform .2s ease;
+    }
+    .foot a::after{
+      content:"→"; position:absolute; right:0; top:0;
+      transform:translateX(-6px); opacity:0; transition:transform .2s ease, opacity .2s ease;
+    }
+    .foot a:hover{background-size:100% 1px}
+    .foot a:hover::after{transform:translateX(0); opacity:1}
+    .copy{display:flex; justify-content:space-between; align-items:center; gap:12px; border-top:var(--border); margin-top:24px; padding-top:14px; font-size:12px; color:#111}
+
+    /* Accessibilità motion */
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{transition:none!important}
+    }
+    ::selection{background:#000;color:#fff}
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="wrap nav">
+      <div class="brand" aria-label="THITA logo">THITA</div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#prodotti">Prodotti</a></li>
+          <li><a href="#principi">Principi</a></li>
+          <li><a href="#contatti">Contatti</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="kicker">Da maker per maker</div>
+        <h1>Oggetti essenziali per chi costruisce.</h1>
+        <div class="sub copytext">
+          <p>Design curato. Materiali di qualità. Un tool.</p>
+          <p>Progettiamo, testiamo sul banco, condividiamo.</p>
+          <p>Documentazione al lancio: BOM, file, manutenzione.</p>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#prodotti">Vedi prototipi <span class="arr">→</span></a>
+          <a class="btn" href="#contatti">Join waitlist <span class="arr">→</span></a>
+        </div>
+      </div>
     </section>
 
-    <!-- Navigazione -->
-    <nav class="thita-footer__nav" aria-label="Footer navigation">
-      <div class="thita-nav-col">
-        <h3>Company</h3>
-        <ul>
-          <li><a href="/about">About</a></li>
-          <li><a href="/work">Work</a></li>
-          <li><a href="/lab">Lab</a></li>
-          <li><a href="/store">Store</a></li>
-        </ul>
-      </div>
-      <div class="thita-nav-col">
-        <h3>Resources</h3>
-        <ul>
-          <li><a href="/press">Press</a></li>
-          <li><a href="/careers">Careers</a></li>
-          <li><a href="/docs">Docs</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="thita-nav-col">
-        <h3>Legal</h3>
-        <ul>
-          <li><a href="/privacy">Privacy</a></li>
-          <li><a href="/cookie-policy">Cookie Policy</a></li>
-          <li><a href="/terms">Terms</a></li>
-          <li><a href="/credits">Credits</a></li>
-        </ul>
-      </div>
-    </nav>
+    <!-- PRODOTTI -->
+    <section id="prodotti">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Prototipi</h2>
+          <p>In validazione. Produzione solo quando “cliccano”.</p>
+        </div>
+        <div class="grid">
+          <article class="tile">
+            <div class="ph" role="img" aria-label="placeholder monocromatico"></div>
+            <div class="tile-body">
+              <h3>Titanium Pen</h3>
+              <p>Robustezza, leggerezza, design, funzionalità. Tutto a portata di mano.</p>
+              <a class="go" href="#">Dettagli <span class="arr">→</span></a>
+            </div>
+            <div class="meta">
+              <span>P-01</span><span class="chip">In test</span>
+            </div>
+          </article>
 
-    <!-- Contatti + dati fiscali -->
-    <section class="thita-footer__legal" aria-label="Company details">
-      <address>
-        <strong>THITA</strong><br>
-        Via Esempio 12, 40100 Bologna (BO), Italy<br>
-        <a href="mailto:info@thita.it">info@thita.it</a> · <a href="tel:+393791128232">+39 379 112 8232</a>
-      </address>
+          <article class="tile">
+            <div class="ph" role="img" aria-label="placeholder monocromatico"></div>
+            <div class="tile-body">
+              <h3>Prossimamente</h3>
+              <p>In arrivo.</p>
+              <a class="go" href="#">Dettagli <span class="arr">→</span></a>
+            </div>
+            <div class="meta">
+              <span>P-02</span><span class="chip">In test</span>
+            </div>
+          </article>
 
-      <ul class="thita-legal-list">
-        <!-- Sostituisci i placeholder appena hai i dati -->
-        <li><span>P. IVA</span> <strong>IT 00000000000</strong></li>
-        <li><span>Cod. Fisc.</span> <strong>XXXXXXXXXXXX</strong></li>
-        <li><span>REA</span> <strong>BO-000000</strong></li>
-        <li><span>Cap. Soc.</span> <strong>€ 10.000 i.v.</strong></li>
-        <li><span>PEC</span> <strong>thita@pec.it</strong></li>
-        <li><span>SDI</span> <strong>AAAAAAA</strong></li>
-      </ul>
-
-      <div class="thita-social">
-        <a href="https://instagram.com/thita" aria-label="Instagram" rel="noopener">IG</a>
-        <a href="https://youtube.com/@thita" aria-label="YouTube" rel="noopener">YT</a>
-        <a href="https://x.com/thita" aria-label="X" rel="noopener">X</a>
-        <a href="https://linkedin.com/company/thita" aria-label="LinkedIn" rel="noopener">IN</a>
+          <article class="tile">
+            <div class="ph" role="img" aria-label="placeholder monocromatico"></div>
+            <div class="tile-body">
+              <h3>Prossimamente</h3>
+              <p>In arrivo.</p>
+              <a class="go" href="#">Dettagli <span class="arr">→</span></a>
+            </div>
+            <div class="meta">
+              <span>P-03</span><span class="chip">In test</span>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
-  </div>
 
-  <div class="thita-footer__bottom">
-    <p>© <span id="thita-year"></span> THITA · All rights reserved</p>
-    <p><a href="/impressum">Impressum</a></p>
-  </div>
-</footer>
+    <!-- PRINCIPI -->
+    <section id="principi">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Principi</h2>
+          <p>Zero rumor. Solo signal.</p>
+        </div>
+        <div class="copytext">
+          <p>Design compatto: niente che non serva.</p>
+          <p>Riparabilità: viti standard, parti sostituibili.</p>
+          <p>Documentazione: file, guide, licenze chiare.</p>
+        </div>
+      </div>
+    </section>
 
-<script>
-  // anno dinamico
-  document.getElementById('thita-year').textContent = new Date().getFullYear();
-</script>
+    <!-- CONTATTI -->
+    <section id="contatti">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Contatti</h2>
+          <p>Scrivici in modo diretto.</p>
+        </div>
+        <div class="contact">
+          <a href="mailto:info@thita.it" aria-label="Scrivi a info@thita.it">info@thita.it</a>
+          <a href="#" title="Waitlist in arrivo" aria-label="Iscriviti alla waitlist">Waitlist</a>
+          <a href="#" title="Press kit in arrivo" aria-label="Press kit">Press</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<style>
-  :root{
-    --thita-bg:#0b0b0c;            /* fondo footer */
-    --thita-fg:#f3f3f4;            /* testo */
-    --thita-dim:#a6a6ab;           /* testo secondario */
-    --thita-accent:#ffffff;        /* linea angolata */
-    --thita-muted:#202024;         /* bordi/linee */
-  }
-  .thita-footer{color:var(--thita-fg);background:var(--thita-bg);border-top:1px solid var(--thita-muted);}
-  .thita-footer__angle{
-    height:8px;
-    background:
-      linear-gradient(135deg, transparent 0 48%, var(--thita-accent) 48% 52%, transparent 52%) no-repeat 0 0/100% 100%;
-    opacity:.15;
-  }
-  .thita-footer__inner{
-    max-width:1200px;margin:auto;padding:48px 20px;
-    display:grid;gap:32px;
-    grid-template-columns:1.2fr 2fr 1.6fr;
-  }
-  .thita-footer__brand{align-self:start}
-  .thita-logo{display:flex;gap:.6rem;align-items:center;text-decoration:none;color:var(--thita-fg)}
-  .thita-logo__glyph{font-size:28px;line-height:1}
-  .thita-logo__type{font-weight:700;letter-spacing:.06em}
-  .thita-payoff{margin:.5rem 0 0;color:var(--thita-dim)}
-  .thita-footer__nav{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .thita-nav-col h3{font-size:.9rem;margin:0 0 .6rem;color:var(--thita-fg);opacity:.9}
-  .thita-nav-col ul{list-style:none;margin:0;padding:0;display:grid;gap:.35rem}
-  .thita-nav-col a{color:var(--thita-dim);text-decoration:none}
-  .thita-nav-col a:hover{color:var(--thita-fg)}
-  .thita-footer__legal{display:grid;gap:14px}
-  .thita-footer__legal address{font-style:normal;color:var(--thita-dim);line-height:1.5}
-  .thita-footer__legal a{color:var(--thita-fg);text-decoration:none}
-  .thita-legal-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px 16px;list-style:none;margin:4px 0 0;padding:0}
-  .thita-legal-list li{display:flex;gap:8px;color:var(--thita-dim);font-size:.92rem}
-  .thita-legal-list span{opacity:.9;min-width:84px}
-  .thita-social{display:flex;gap:10px;margin-top:6px}
-  .thita-social a{display:inline-flex;align-items:center;justify-content:center;
-    width:28px;height:28px;border:1px solid var(--thita-muted);border-radius:50%;color:var(--thita-fg);text-decoration:none;font-size:.72rem}
-  .thita-social a:hover{background:var(--thita-muted)}
-  .thita-footer__bottom{
-    border-top:1px solid var(--thita-muted);display:flex;justify-content:space-between;
-    gap:16px;align-items:center;padding:14px 20px;color:var(--thita-dim);font-size:.92rem;max-width:1200px;margin:auto;
-  }
-  .thita-footer__bottom a{color:var(--thita-dim);text-decoration:none}
-  .thita-footer__bottom a:hover{color:var(--thita-fg)}
-  @media (max-width:980px){
-    .thita-footer__inner{grid-template-columns:1fr;gap:28px}
-    .thita-footer__nav{grid-template-columns:repeat(2,1fr)}
-    .thita-legal-list{grid-template-columns:repeat(2,minmax(0,1fr))}
-  }
-  @media (max-width:560px){
-    .thita-footer__nav{grid-template-columns:1fr}
-    .thita-legal-list{grid-template-columns:1fr}
-  }
-</style>
-
-<!-- JSON-LD pronto per SEO e dati fiscali -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Organization",
-  "name":"THITA",
-  "url":"https://thita.it",
-  "logo":"https://thita.it/favicon/android-chrome-512x512.png",
-  "email":"info@thita.it",
-  "telephone":"+39 379 112 8232",
-  "address":{
-    "@type":"PostalAddress",
-    "streetAddress":"Via Esempio 12",
-    "addressLocality":"Bologna",
-    "postalCode":"40100",
-    "addressCountry":"IT"
-  },
-  "vatID":"IT00000000000",
-  "legalName":"THITA S.r.l.",
-  "foundingDate":"2025",
-  "sameAs":[
-    "https://instagram.com/thita",
-    "https://www.linkedin.com/company/thita",
-    "https://x.com/thita",
-    "https://youtube.com/@thita"
-  ]
-}
-</script>
+  <!-- FOOTER (identico) -->
+  <footer>
+    <div class="wrap footer-wrap">
+      <div class="foot" aria-label="Footer">
+        <div class="foot-brand">
+          <div class="logotype">THITA</div>
+          <p>Oggetti essenziali per chi costruisce. Bianco e nero, forma onesta.</p>
+        </div>
+        <div>
+          <h4>Azienda</h4>
+          <ul>
+            <li><a href="#principi">Principi</a></li>
+            <li><a href="#prodotti">Prototipi</a></li>
+            <li><a href="#contatti">Contatti</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legale</h4>
+          <ul>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/termini">Termini</a></li>
+            <li><a href="/cookie">Cookie</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contatti</h4>
+          <ul>
+            <li><a href="mailto:info@thita.it">info@thita.it</a></li>
+            <li>Bologna, IT</li>
+            <li>© 2025 THITA</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copy">
+        <span>© 2025 THITA. Tutti i diritti riservati.</span>
+        <span>Made without color.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
