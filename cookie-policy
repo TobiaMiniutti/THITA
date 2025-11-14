@@ -1,0 +1,282 @@
+<section class="cookie-policy">
+  <h1>Cookie Policy di thita.it</h1>
+  <p><strong>Ultimo aggiornamento:</strong> 14 novembre 2025</p>
+
+  <h2>1. Titolare del trattamento</h2>
+  <p>
+    Il titolare del trattamento dei dati personali raccolti tramite questo sito web è
+    <strong>[Nome / Ragione sociale del Titolare]</strong>, con sede in
+    [indirizzo completo], email di contatto:
+    <a href="mailto:info@thita.it">info@thita.it</a>
+    (di seguito, anche “<strong>Titolare</strong>” o “<strong>THITA</strong>”).
+  </p>
+  <p>
+    Per qualsiasi informazione sul trattamento dei dati personali, compreso l’uso dei cookie,
+    puoi contattarci all’indirizzo <a href="mailto:info@thita.it">info@thita.it</a>.
+  </p>
+
+  <h2>2. Cosa sono i cookie e gli altri strumenti di tracciamento</h2>
+  <p>
+    I <strong>cookie</strong> sono piccoli file di testo che i siti visitati dall’utente inviano
+    al suo dispositivo (computer, smartphone, tablet), dove vengono memorizzati per essere poi
+    ritrasmessi agli stessi siti alla visita successiva. 
+  </p>
+  <p>
+    Insieme ai cookie possono essere utilizzati anche altri strumenti di tracciamento
+    (come <strong>pixel, tag, local storage</strong>), che perseguono finalità simili.
+    In questa policy, con il termine “cookie” indichiamo in modo esteso tutti questi strumenti.
+  </p>
+
+  <h2>3. Base giuridica e obbligatorietà del conferimento</h2>
+  <ul>
+    <li>
+      I <strong>cookie tecnici necessari</strong> sono trattati sulla base giuridica della
+      <strong>esecuzione di misure precontrattuali/contrattuali</strong> e del
+      <strong>legittimo interesse</strong> del Titolare al corretto funzionamento del sito.
+      Il loro utilizzo è necessario per erogare i servizi richiesti e non richiede il tuo consenso.
+    </li>
+    <li>
+      I <strong>cookie statistici (Google Analytics)</strong> sono utilizzati
+      solo previo tuo <strong>consenso esplicito</strong>, raccolto tramite il banner
+      di gestione dei cookie. Il mancato conferimento del consenso non pregiudica in alcun modo
+      la possibilità di navigare sul sito.
+    </li>
+  </ul>
+
+  <h2>4. Tipologie di cookie utilizzati da thita.it</h2>
+
+  <h3>4.1 Cookie tecnici strettamente necessari</h3>
+  <p>
+    Questi cookie sono indispensabili per il corretto funzionamento del sito e non possono
+    essere disattivati nei nostri sistemi. Di solito vengono impostati solo in risposta ad azioni
+    da te compiute che costituiscono una richiesta di servizi, come:
+  </p>
+  <ul>
+    <li>impostare le preferenze sulla privacy e sui cookie;</li>
+    <li>gestire la sessione e il login alle eventuali aree riservate;</li>
+    <li>garantire la sicurezza del sito e prevenire utilizzi fraudolenti;</li>
+    <li>memorizzare eventuali scelte tecniche (es. lingua, layout).</li>
+  </ul>
+  <p>
+    Puoi configurare il browser per bloccare questi cookie o ricevere un avviso su di essi,
+    ma alcune parti del sito potrebbero non funzionare correttamente.
+  </p>
+  <p>
+    Rientrano in questa categoria anche i cookie utilizzati dal
+    <strong>banner di gestione dei consensi</strong> (Silktide Consent Manager),
+    che registrano le tue scelte in materia di cookie per evitare di riproporti il banner
+    ad ogni accesso.
+  </p>
+
+  <h3>4.2 Cookie statistici / analitici (Google Analytics)</h3>
+  <p>
+    THITA utilizza <strong>Google Analytics</strong>, un servizio di analisi web fornito da
+    Google LLC (“Google”), per misurare il traffico e le prestazioni del sito in forma
+    aggregata. I dati raccolti tramite questi cookie servono a:
+  </p>
+  <ul>
+    <li>analizzare in che modo gli utenti utilizzano il sito (pagine visitate, tempo di permanenza, percorsi di navigazione);</li>
+    <li>valutare le performance dei contenuti e delle funzionalità;</li>
+    <li>migliorare l’esperienza di navigazione e la qualità dei servizi offerti.</li>
+  </ul>
+  <p>
+    L’attivazione di questi cookie avviene solo se esprimi il tuo
+    <strong>consenso</strong> tramite il banner o il pannello
+    “Personalizza le tue preferenze”.
+  </p>
+  <p>
+    THITA ha configurato Google Analytics adottando misure di <strong>minimizzazione</strong> dei dati,
+    tra cui:
+  </p>
+  <ul>
+    <li>utilizzo di Google Analytics 4;</li>
+    <li>attivazione di funzioni di <strong>anonimizzazione o mascheramento dell’indirizzo IP</strong>, ove disponibili;</li>
+    <li>disattivazione delle opzioni che permettono a Google di incrociare i dati con altri servizi o di utilizzarli per profilazione pubblicitaria (ove configurabile);</li>
+    <li>impostazione di periodi di <strong>conservazione dei dati limitati</strong> rispetto alle opzioni massime consentite dallo strumento.</li>
+  </ul>
+  <p>
+    Resta ferma la qualificazione dei cookie analitici come
+    <strong>cookie non tecnici</strong> secondo il Garante italiano, pertanto il loro utilizzo su thita.it
+    avviene solo previa acquisizione del tuo consenso tramite il banner.
+  </p>
+
+  <h2>5. Elenco dei principali cookie utilizzati</h2>
+  <p>
+    Di seguito una tabella di riepilogo dei principali cookie attivi su thita.it.
+    La lista potrà essere aggiornata automaticamente dal sistema di gestione dei consensi
+    e potrà variare nel tempo in funzione delle modifiche tecniche apportate al sito
+    o ai servizi terzi integrati.
+  </p>
+
+  <h3>5.1 Cookie tecnici</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome cookie</th>
+        <th>Fornitore</th>
+        <th>Finalità</th>
+        <th>Durata</th>
+        <th>Tipo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>[es. PHPSESSID / session-id]</td>
+        <td>thita.it</td>
+        <td>Gestisce la sessione di navigazione dell’utente e le funzionalità di base del sito.</td>
+        <td>Sessione</td>
+        <td>Cookie tecnico di prima parte</td>
+      </tr>
+      <tr>
+        <td>[es. silktide-consent / cm_consent_*]</td>
+        <td>thita.it / Silktide Ltd</td>
+        <td>Memorizza le preferenze espresse dall’utente in merito all’uso dei cookie tramite il banner.</td>
+        <td>Fino a 12 mesi</td>
+        <td>Cookie tecnico (consenso)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>5.2 Cookie statistici (Google Analytics)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome cookie</th>
+        <th>Fornitore</th>
+        <th>Finalità</th>
+        <th>Durata</th>
+        <th>Tipo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>_ga</td>
+        <td>Google Analytics</td>
+        <td>
+          Utilizzato per distinguere gli utenti in forma anonima e generare statistiche aggregate
+          sull’utilizzo del sito.
+        </td>
+        <td>2 anni</td>
+        <td>Cookie analitico di terza parte</td>
+      </tr>
+      <tr>
+        <td>_ga_[ID-container]</td>
+        <td>Google Analytics</td>
+        <td>
+          Utilizzato per mantenere lo stato della sessione e collegare più interazioni dello stesso utente.
+        </td>
+        <td>2 anni</td>
+        <td>Cookie analitico di terza parte</td>
+      </tr>
+      <tr>
+        <td>_gid</td>
+        <td>Google Analytics</td>
+        <td>
+          Utilizzato per distinguere gli utenti e analizzare le visite e le sessioni in modo aggregato.
+        </td>
+        <td>24 ore</td>
+        <td>Cookie analitico di terza parte</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    Per maggiori informazioni sui cookie utilizzati da Google Analytics puoi consultare
+    la pagina ufficiale di Google:
+    <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener noreferrer">
+      https://policies.google.com/technologies/cookies
+    </a>.
+  </p>
+
+  <h2>6. Come gestire le preferenze sui cookie</h2>
+
+  <h3>6.1 Tramite il banner “Personalizza le tue preferenze”</h3>
+  <p>
+    Al primo accesso al sito viene mostrato un <strong>banner</strong> che ti consente di:
+  </p>
+  <ul>
+    <li>accettare tutti i cookie;</li>
+    <li>rifiutare i cookie non necessari;</li>
+    <li><strong>personalizzare le tue preferenze</strong>, scegliendo in modo granulare le categorie di cookie da abilitare.</li>
+  </ul>
+  <p>
+    Puoi in qualsiasi momento modificare le tue scelte cliccando sull’<strong>icona o link dedicato</strong>
+    (ad es. “Preferenze cookie”) presente nel sito, che riapre il pannello di gestione.
+  </p>
+
+  <h3>6.2 Tramite le impostazioni del browser</h3>
+  <p>
+    La maggior parte dei browser consente di accettare o rifiutare i cookie, nonché
+    di cancellarli. Le modalità di configurazione variano da browser a browser:
+  </p>
+  <ul>
+    <li>Chrome</li>
+    <li>Firefox</li>
+    <li>Safari</li>
+    <li>Edge</li>
+    <li>Altri browser</li>
+  </ul>
+  <p>
+    Ti invitiamo a consultare la sezione “Aiuto” del tuo browser per maggiori informazioni
+    su come gestire i cookie tramite le sue impostazioni.
+  </p>
+
+  <h3>6.3 Opt-out specifico per Google Analytics</h3>
+  <p>
+    In aggiunta alle opzioni sopra indicate, puoi installare il componente aggiuntivo
+    del browser per la <strong>disattivazione di Google Analytics</strong>, disponibile all’indirizzo:
+    <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">
+      https://tools.google.com/dlpage/gaoptout
+    </a>.
+  </p>
+
+  <h2>7. Trasferimenti di dati personali verso Paesi extra UE</h2>
+  <p>
+    L’utilizzo di Google Analytics può comportare il <strong>trasferimento di dati personali</strong>
+    (in forma pseudonimizzata) verso Paesi extra UE, in particolare verso gli Stati Uniti,
+    dove hanno sede Google LLC e alcune delle sue infrastrutture.
+  </p>
+  <p>
+    Tali trasferimenti avvengono, se del caso, sulla base degli strumenti di garanzia
+    previsti dal GDPR (ad es. <strong>Clausole Contrattuali Standard</strong> e ulteriori
+    misure di sicurezza tecniche e organizzative adottate da Google e dal Titolare).
+  </p>
+  <p>
+    THITA monitora l’evoluzione del quadro normativo e delle decisioni delle Autorità di controllo
+    in materia di trasferimenti internazionali, impegnandosi ad adeguare la configurazione
+    degli strumenti di analisi e, se necessario, a valutare soluzioni alternative.
+  </p>
+
+  <h2>8. Diritti degli interessati</h2>
+  <p>
+    In qualità di interessato, hai il diritto di:
+  </p>
+  <ul>
+    <li>ottenere conferma dell’esistenza o meno di dati personali che ti riguardano;</li>
+    <li>accedere ai tuoi dati personali e chiederne la rettifica o l’aggiornamento;</li>
+    <li>chiedere la cancellazione dei dati personali nei casi previsti dall’art. 17 GDPR;</li>
+    <li>chiedere la limitazione del trattamento nei casi previsti dall’art. 18 GDPR;</li>
+    <li>opporsi al trattamento nei casi previsti dall’art. 21 GDPR;</li>
+    <li>revocare in qualsiasi momento il consenso prestato, senza pregiudicare la liceità
+        del trattamento basata sul consenso prima della revoca;</li>
+    <li>proporre reclamo all’Autorità di controllo competente (in Italia, il Garante per
+        la protezione dei dati personali).</li>
+  </ul>
+  <p>
+    Per esercitare i tuoi diritti puoi scrivere a:
+    <a href="mailto:info@thita.it">info@thita.it</a>.
+    Ulteriori informazioni sul trattamento dei dati personali sono disponibili nella nostra
+    <a href="/privacy-policy">Privacy Policy</a>.
+  </p>
+
+  <h2>9. Modifiche alla presente Cookie Policy</h2>
+  <p>
+    Il Titolare si riserva il diritto di modificare in qualsiasi momento la presente
+    Cookie Policy, ad esempio in caso di aggiornamenti normativi o cambiamenti nei
+    cookie utilizzati dal sito. Le modifiche saranno pubblicate su questa pagina e,
+    se rilevanti, potranno essere comunicate tramite il banner o altri strumenti tecnici.
+  </p>
+  <p>
+    Ti invitiamo pertanto a consultare periodicamente questa pagina per essere sempre
+    informato sull’uso dei cookie da parte di thita.it.
+  </p>
+</section>
