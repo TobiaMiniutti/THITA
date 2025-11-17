@@ -1,290 +1,195 @@
 <!doctype html>
 <html lang="it">
 <head>
+
+  <!-- CookieScript -->
+  <script type="text/javascript" charset="UTF-8" src="//cdn.cookie-script.com/s/2a977c67d8aebb939794af5370b541b9.js"></script>
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R2XG3RF9VQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R2XG3RF9VQ');
+  </script>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>THITA — Pagina non trovata</title>
-  <meta name="description" content="La pagina che stai cercando non esiste o non è più disponibile.">
-  <link rel="icon" href="/favicon.ico">
+  <meta name="description" content="La pagina che stai cercando non esiste o non è più disponibile." />
   <style>
     /* Reset minimo */
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
 
-    html,body{
-      height:100%;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-      background:#0f0f10;
-      color:#f5f5f5;
+    /* Token B/N */
+    :root{
+      --bg:#fff; --fg:#000; --muted:#111; --line:#000;
+      --max:1080px; --pad:24px; --radius:18px;
+      --border:1px solid var(--line);
     }
-
     body{
-      display:flex;
-      flex-direction:column;
-      min-height:100vh;
+      background:var(--bg); color:var(--fg);
+      font:400 16px/1.5 ui-sans-serif, system-ui, -apple-system,"SF Pro Text","Segoe UI", Roboto, Helvetica, Arial;
+      letter-spacing:.1px;
     }
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 var(--pad);}
 
-    .page{
-      flex:1;
-      display:flex;
-      flex-direction:column;
+    /* Header minimal */
+    header{border-bottom:var(--border); position:sticky; top:0; background:var(--bg); z-index:10}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:16px 0;}
+    .brand{font-weight:700; letter-spacing:3px; font-size:14px}
+
+    /* Nav hover: underline progress + focus visibile */
+    nav ul{list-style:none; display:flex; gap:22px; margin:0; padding:0}
+    nav a{
+      font-size:14px; opacity:.95; position:relative; padding:2px 0;
+      background-image:linear-gradient(var(--fg),var(--fg));
+      background-repeat:no-repeat; background-size:0% 1px; background-position:0 100%;
+      transition:background-size .2s ease, opacity .2s ease;
     }
+    nav a:hover, nav a:focus-visible{background-size:100% 1px; opacity:1; outline:none}
 
-    /* Top bar con logo */
-    .top-bar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:16px 6vw;
-      border-bottom:1px solid rgba(255,255,255,0.06);
+    /* HERO 404 */
+    .hero{
+      padding:90px 0 70px;
+      border-bottom:var(--border);
     }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      text-decoration:none;
-      color:#f5f5f5;
+    .kicker{
+      font-size:12px; text-transform:uppercase;
+      letter-spacing:2px; color:#222; margin-bottom:10px
     }
-
-    .brand-mark{
-      width:34px;
-      height:34px;
-      border-radius:999px;
-      border:1px solid rgba(197,162,77,0.65);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:18px;
-      letter-spacing:0.06em;
+    h1{
+      margin:0 0 16px;
+      font-size:clamp(40px,7vw,72px);
+      line-height:1.02;
+      letter-spacing:-1px
     }
+    .sub{max-width:720px; font-size:clamp(18px,2.3vw,22px); color:#111}
 
-    .brand-text{
-      font-size:15px;
-      letter-spacing:0.16em;
-      text-transform:uppercase;
-      opacity:0.9;
-    }
+    .copytext p{margin:0; padding:14px 0;}
+    .copytext p + p{border-top:var(--border);}
 
-    /* Contenuto centrale */
-    .content{
-      flex:1;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:40px 6vw 72px;
-    }
-
-    .card{
-      max-width:560px;
-      width:100%;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,0.06);
-      background:radial-gradient(circle at top,#181818 0,#0f0f10 52%,#050506 100%);
-      padding:28px 24px 26px;
-      box-shadow:0 18px 40px rgba(0,0,0,0.6);
-    }
-
-    .eyebrow{
-      font-size:11px;
-      letter-spacing:0.26em;
-      text-transform:uppercase;
-      color:#c5a24d;
-      margin-bottom:10px;
-    }
-
-    .code{
-      font-size:40px;
-      line-height:1;
-      font-weight:600;
-      margin-bottom:10px;
-    }
-
-    .title{
-      font-size:22px;
-      font-weight:500;
-      margin-bottom:10px;
-    }
-
-    .text{
-      font-size:14px;
-      line-height:1.6;
-      color:#c9c9c9;
-      margin-bottom:22px;
-    }
-
-    .hint{
-      font-size:12px;
-      color:#8c8c8c;
-      margin-bottom:22px;
-    }
-
-    .actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
+    /* Bottoni minimal */
+    .actions{display:flex; gap:12px; margin-top:22px; flex-wrap:wrap}
     .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px 20px;
-      border-radius:999px;
-      border:1px solid rgba(197,162,77,0.75);
-      background:linear-gradient(120deg,#c5a24d,#e2c474);
-      color:#141414;
-      font-size:13px;
-      font-weight:600;
-      text-decoration:none;
-      letter-spacing:0.08em;
-      text-transform:uppercase;
-      position:relative;
-      overflow:hidden;
+      border:var(--border); border-radius:999px; padding:10px 16px; font-size:14px;
+      display:inline-flex; align-items:center; gap:8px;
+      transition:transform .15s ease, background .15s ease, color .15s ease;
+    }
+    .btn:hover,.btn:focus-visible{background:#000;color:#fff; transform:translateY(-1px); outline:none}
+    .btn .arr{transition:transform .15s ease}
+    .btn:hover .arr{transform:translateX(3px)}
+
+    /* ===== FOOTER (identico alla home) ===== */
+    footer{padding:42px 0}
+    .footer-wrap{border-top:var(--border); padding-top:28px}
+    .foot{display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:28px}
+    @media (max-width:900px){.foot{grid-template-columns:1fr 1fr}}
+    @media (max-width:600px){.foot{grid-template-columns:1fr}}
+    .foot-brand .logotype{font-weight:700; letter-spacing:3px; font-size:14px; margin-bottom:10px}
+    .foot-brand p{max-width:38ch; color:#111; margin:0}
+    .foot h4{font-size:12px; margin:0 0 12px; text-transform:uppercase; letter-spacing:1.6px;}
+    .foot ul{list-style:none; margin:0; padding:0; display:grid; gap:10px}
+    .foot a{
+      position:relative; font-size:14px; padding-right:16px;
+      background-image:linear-gradient(var(--fg),var(--fg));
+      background-size:0% 1px; background-repeat:no-repeat; background-position:0 100%;
+      transition:background-size .2s ease, transform .2s ease;
+    }
+    .foot a::after{
+      content:"→"; position:absolute; right:0; top:0;
+      transform:translateX(-6px); opacity:0; transition:transform .2s ease, opacity .2s ease;
+    }
+    .foot a:hover{background-size:100% 1px}
+    .foot a:hover::after{transform:translateX(0); opacity:1}
+    .copy{
+      display:flex; justify-content:space-between; align-items:center; gap:12px;
+      border-top:var(--border); margin-top:24px; padding-top:14px;
+      font-size:12px; color:#111
     }
 
-    .btn::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(120deg,rgba(255,255,255,0.26),transparent 60%);
-      opacity:0;
-      transform:translateX(-10%);
-      transition:opacity 0.28s ease,transform 0.28s ease;
+    /* Accessibilità motion */
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{transition:none!important}
     }
-
-    .btn:hover::after{
-      opacity:1;
-      transform:translateX(8%);
-    }
-
-    .btn-outline{
-      border-color:rgba(255,255,255,0.26);
-      background:transparent;
-      color:#f5f5f5;
-      letter-spacing:0.06em;
-    }
-
-    .btn-outline:hover{
-      border-color:rgba(255,255,255,0.5);
-      background:rgba(255,255,255,0.02);
-    }
-
-    .btn span.icon{
-      margin-left:8px;
-      font-size:12px;
-      transform:translateY(0.5px);
-    }
-
-    /* Footer */
-    .footer{
-      padding:14px 6vw 18px;
-      font-size:11px;
-      color:#777;
-      border-top:1px solid rgba(255,255,255,0.06);
-    }
-
-    .footer-inner{
-      max-width:960px;
-      margin:0 auto;
-      display:flex;
-      flex-wrap:wrap;
-      gap:6px 16px;
-      align-items:center;
-      justify-content:space-between;
-    }
-
-    .footer-links a{
-      color:#777;
-      text-decoration:none;
-      margin-left:10px;
-      position:relative;
-      font-size:11px;
-    }
-
-    .footer-links a::after{
-      content:"";
-      position:absolute;
-      left:0;
-      right:0;
-      bottom:-2px;
-      height:1px;
-      background:linear-gradient(90deg,#c5a24d,#f0df9a,#c5a24d);
-      transform:scaleX(0);
-      transform-origin:center;
-      transition:transform 0.25s ease;
-    }
-
-    .footer-links a:hover::after{
-      transform:scaleX(1);
-    }
-
-    @media (max-width:640px){
-      .card{
-        padding:22px 18px 20px;
-      }
-      .code{
-        font-size:32px;
-      }
-      .title{
-        font-size:19px;
-      }
-      .top-bar{
-        padding:14px 16px;
-      }
-      .content{
-        padding:26px 16px 40px;
-      }
-      .footer{
-        padding:12px 16px 16px;
-      }
-    }
+    ::selection{background:#000;color:#fff}
   </style>
 </head>
 <body>
-  <div class="page">
-    <!-- Top bar con logo -->
-    <header class="top-bar">
-      <a href="/" class="brand">
-        <div class="brand-mark">Θ</div>
-        <div class="brand-text">Thita</div>
-      </a>
-    </header>
+  <!-- HEADER -->
+  <header>
+    <div class="wrap nav">
+      <a href="/" class="brand" aria-label="THITA logo">THITA</a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="/#prodotti">Prodotti</a></li>
+          <li><a href="/#principi">Principi</a></li>
+          <li><a href="/#contatti">Contatti</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Contenuto centrale -->
-    <main class="content">
-      <section class="card" aria-labelledby="thita-404-title">
-        <div class="eyebrow">Pagina non trovata</div>
-        <div class="code">404</div>
-        <h1 id="thita-404-title" class="title">L’angolo che cercavi non esiste (più).</h1>
-
-        <p class="text">
-          Il contenuto potrebbe essere stato spostato, aggiornato oppure l’indirizzo è stato digitato in modo non corretto.
-        </p>
-
-        <p class="hint">
-          Puoi tornare alla home di THITA oppure contattarci per segnalare il problema.
-        </p>
-
-        <div class="actions">
-          <a class="btn" href="/">
-            Torna alla home
-            <span class="icon">↩</span>
-          </a>
-          <a class="btn btn-outline" href="mailto:info@thita.it?subject=Errore%20404%20-%20Segnalazione">
-            Segnala il problema
-          </a>
+  <!-- MAIN -->
+  <main>
+    <!-- HERO 404 -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="kicker">Errore 404</div>
+        <h1>La pagina non è sul banco.</h1>
+        <div class="sub copytext">
+          <p>Il contenuto che cercavi non è disponibile qui.</p>
+          <p>Forse il link è cambiato, oppure non è ancora stato documentato.</p>
+          <p>Puoi tornare alla home o contattarci in modo diretto.</p>
         </div>
-      </section>
-    </main>
-  </div>
+        <div class="actions">
+          <a class="btn" href="/">Torna alla home <span class="arr">→</span></a>
+          <a class="btn" href="mailto:info@thita.it?subject=Segnalazione%20404">Segnala il problema <span class="arr">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <div>© THITA — Tutti i diritti riservati.</div>
-      <div class="footer-links">
-        <a href="/">Home</a>
-        <a href="/privacy">Privacy</a>
-        <a href="/contatti">Contatti</a>
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap footer-wrap">
+      <div class="foot" aria-label="Footer">
+        <div class="foot-brand">
+          <div class="logotype">THITA</div>
+          <p>Design from a better angle.</p>
+        </div>
+        <div>
+          <h4>Azienda</h4>
+          <ul>
+            <li><a href="/#principi">Principi</a></li>
+            <li><a href="/#prodotti">Prototipi</a></li>
+            <li><a href="/#contatti">Contatti</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legale</h4>
+          <ul>
+            <li><a href="/privacy-policy">Privacy</a></li>
+            <li><a href="/terms-and-conditions">Termini</a></li>
+            <li><a href="/cookie-policy">Cookie</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contatti</h4>
+          <ul>
+            <li><a href="mailto:info@thita.it">info@thita.it</a></li>
+            <li>Bologna, IT</li>
+            <li>© 2025 THITA</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copy">
+        <span>© 2025 THITA. Tutti i diritti riservati.</span>
+        <span>Made without color.</span>
       </div>
     </div>
   </footer>
